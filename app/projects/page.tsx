@@ -1,6 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import AddProject from "./add";
 import DeleteProject from "./delete";
+import Image from "next/image";
 const prisma = new PrismaClient();
 
 const getProjects = async () => {
@@ -35,7 +36,7 @@ const ProjectPage = async () => {
       <AddProject technology={technology} />
       {projects.map((project) => (
         <div key={project.id}>
-          <img src={project.image} />
+          <Image src={project.image} alt="Image" />
           <h1>Title : {project.title}</h1>
           <h1>Category : {project.category}</h1>
           <h1>Description : {project.description}</h1>
